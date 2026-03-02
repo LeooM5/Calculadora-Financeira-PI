@@ -15,7 +15,7 @@ main {
     border-radius: 2em;
     width: 60dvw;
     height: 70dvh;
-    background-image: url(./queijo.png);
+    background-image: url(queijo.png);
     background-size: cover;
     background-repeat: no-repeat;
 }

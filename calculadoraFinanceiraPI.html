@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Financeira Projeto PI</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <div onclick="displayNoneOrNormalQueijo()" id="queijoPerdas"></div>
+      <div onclick="displayNoneOrNormalSal()" id="sal"></div>
+      <div onclick="displayNoneOrNormalLeite()" id="leiteCru"></div>
+      <div onclick="displayNoneOrNormalCamara()" id="camaraMaturacao"></div>
+      <div onclick="displayNoneOrNormalTanque()" id="tanqueInox"></div>
+      <div onclick="displayNoneOrNormalEnergia()" id="energia"></div>
+      <div onclick="displayNoneOrNormalAgua()" id="agua"></div>
+    </main>
+    <div class="separacao"></div>
+    <section>
+      <div class="container" id="queijoForm">
+        <div class="qtdKgPerdidas">
+          Quantidade em KG perdida e utilizada do queijo Minas Padrão:
+          <input onkeyup="calcularQueijo()" type="number" id="qtdKgPerdidasQueijo" />
+        </div>
+        <div id="precoMedioQPorKg">
+          Preço médio por KG do Queijo Minas Padrão:
+          <span>R$70,00</span>
+        </div>
+        <div id="valorQDesperdicado">
+          Gasto médio mensal de:
+          <span id="gastoQueijo"></span>
+        </div>
+      </div>
+      <div class="container" id="salForm">
+        <div class="qtdKgUsadoSal">
+          Quantidade em KG perdida e utilizada do Sal : <br /><br />
+          <input onkeyup="calcularSal()" type="number" id="qtdKgUsadoSal" />
+        </div>
+        <div id="precoMedioSPorKg">
+          Preço médio por KG do Sal:
+          <span>R$2,80 </span>
+        </div>
+        <div id="valorSDesperdicado">
+          Gasto médio mensal de: <span id="gastoSal"></span>
+        </div>
+      </div>
+      <div class="container" id="leiteForm">
+        <div class="qtdLPerdidas">
+          Quantidade em Litros perdida do Leite: <br /><br />
+          <input onkeyup="calcularLeite()" type="number" id="qtdLitrosPerdidasL" />
+        </div>
+        <div id="precoMedioLPorKg">
+          Preço médio por Litro do Leite:
+          <span> R$6,00 </span>
+        </div>
+        <div id="valorLDesperdicado">
+          Gasto médio mensal de:<span id="gastoLeite"></span>
+        </div>
+      </div>
+      <div class="container" id="camaraMaturacaoForm">
+        <div class="qtdKWhUsadoCamara">
+          Quantidade de energia utilizada pela Câmara em KWh: <br /><br />
+          <input onkeyup="calcularCamara()" type="number" id="qtdKWhUsadoCamara" />
+        </div>
+        <div id="precoMedioKWh">
+          Preço médio do KWh em São Paulo:
+          <span> R$0,70 </span>
+        </div>
+        <div id="valorKWhCamara">
+          Gasto médio mensal de:<span id="gastoCamara"></span>
+        </div>
+      </div>
+      <div class="container" id="tanqueInoxForm">
+        <div class="qtdKWhUsadoTanque">
+          Quantidade em KWh usada pelo Tanque Inox: <br /><br />
+          <input onkeyup="calcularTanque()" type="number" id="qtdKWhUsadoTanque" />
+        </div>
+        <div id="precoMedioKWhSp">
+          Preço médio do KWh em São Paulo: <span>R$0,70</span>
+        </div>
+        <div id="valorKWhTanque">
+          Gasto médio mensal de:
+          <span id="gastoTanque"></span>
+        </div>
+      </div>
+      <div class="container" id="energiaForm">
+        <div class="qtdKWhTotal">
+          Quantidade em KWh total utilizada: <br /><br />
+          <input onkeyup="calcularEnergia()" type="number" id="qtdKWhTotal" />
+        </div>
+        <div id="precoMedioKWhTotal">
+          Preço médio do KWh em São Paulo:
+          <span> R$0,70 </span>
+        </div>
+        <div id="valorKWhTotal">
+          Gasto médio mensal de:
+          <span id="gastoKwhTotal"></span>
+        </div>
+      </div>
+      <div class="container" id="aguaForm">
+        <div class="qtdLPerdidasAgua">
+          Quantidade em Litros utilizada de Água: <br /><br />
+          <input onkeyup="calcularAgua()" type="number" id="qtdLPerdidasAgua" />
+        </div>
+        <div id="precoMedioLAgua">
+          Preço médio por 1m&sup3; &lpar;1000 Litros&rpar; de Água:
+          <br />
+          <span
+            >0 - 10 m&sup3; R$76,60 &lpar;Fixo&rpar;
+            <br />
+            11 - 20 m&sup3; R$9,00
+            <br />
+            21 - 50 m&sup3; R$15,00
+            <br />
+            &gt; 50 m&sup3; R$18,00</span
+          >
+        </div>
+        <div id="valorAguaDesperdicado">
+          Gasto médio mensal de:
+          <span id="gastoAgua">R$</span>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+<script>
+  let divQueijo = queijoPerdas;
+  let divSal = sal;
+  let divLeite = leiteCru;
+  let divCamaraMaturacao = camaraMaturacao;
+  let divTanqueInox = tanqueInox;
+  let divEnergia = energia;
+  let divAgua = agua;
+  let formQueijo = queijoForm;
+  let formSal = salForm;
+  let formLeite = leiteForm;
+  let formCamara = camaraMaturacaoForm;
+  let formTanque = tanqueInoxForm;
+  let formEnergia = energiaForm;
+  let formAgua = aguaForm;
+
+  function displayNoneOrNormalQueijo() {
+    if (formQueijo.classList.contains("desaparecer")) {
+      formQueijo.classList.remove("desaparecer");
+    } else {
+      formQueijo.classList.add("desaparecer");
+    }
+  }
+
+  function displayNoneOrNormalSal() {
+    if (formSal.classList.contains("desaparecer")) {
+      formSal.classList.remove("desaparecer");
+    } else {
+      formSal.classList.add("desaparecer");
+    }
+  }
+
+  function displayNoneOrNormalLeite() {
+    if (formLeite.classList.contains("desaparecer")) {
+      formLeite.classList.remove("desaparecer");
+    } else {
+      formLeite.classList.add("desaparecer");
+    }
+  }
+
+  function displayNoneOrNormalCamara() {
+    if (formCamara.classList.contains("desaparecer")) {
+      formCamara.classList.remove("desaparecer");
+    } else {
+      formCamara.classList.add("desaparecer");
+    }
+  }
+
+  function displayNoneOrNormalTanque() {
+    if (formTanque.classList.contains("desaparecer")) {
+      formTanque.classList.remove("desaparecer");
+    } else {
+      formTanque.classList.add("desaparecer");
+    }
+  }
+
+  function displayNoneOrNormalEnergia() {
+    if (formEnergia.classList.contains("desaparecer")) {
+      formEnergia.classList.remove("desaparecer");
+    } else {
+      formEnergia.classList.add("desaparecer");
+    }
+  }
+
+  function displayNoneOrNormalAgua() {
+    if (formAgua.classList.contains("desaparecer")) {
+      formAgua.classList.remove("desaparecer");
+    } else {
+      formAgua.classList.add("desaparecer");
+    }
+  }
+
+  let precoKgQueijo = 70;
+  let precoKgSal = 2.8;
+  let precoLitroLeite = 6;
+  let precoKWhSP = 0.7;
+
+  function calcularQueijo() {
+    let qtdKGQueijo = Number(qtdKgPerdidasQueijo.value);
+    let total = qtdKGQueijo * precoKgQueijo;
+    gastoQueijo.innerHTML = `R$${total.toFixed(2)}`;
+  }
+
+  function calcularSal() {
+    let qtdKGSal = Number(qtdKgUsadoSal.value);
+    let total = qtdKGSal * precoKgSal;
+    gastoSal.innerHTML = `R$${total.toFixed(2)}`;
+  }
+
+  function calcularLeite() {
+    let qtdLitrosLeite = Number(qtdLitrosPerdidasL.value);
+    let total = qtdLitrosLeite * precoLitroLeite;
+    gastoLeite.innerHTML = `R$${total.toFixed(2)}`;
+  }
+
+  function calcularCamara() {
+    let qtdKwhCamara = Number(qtdKWhUsadoCamara.value);
+    let total = qtdKwhCamara * precoKWhSP;
+    gastoCamara.innerHTML = `R$${total.toFixed(2)}`;
+  }
+
+  function calcularTanque() {
+    let qtdKwhTanque = Number(qtdKWhUsadoTanque.value);
+    let total = qtdKwhTanque * precoKWhSP;
+    gastoTanque.innerHTML = `R$${total.toFixed(2)}`;
+  }
+
+  function calcularEnergia() {
+    let qtdKwhT = Number(qtdKWhTotal.value);
+    let total = qtdKwhT * precoKWhSP;
+    gastoKwhTotal.innerHTML = `R$${total.toFixed(2)}`;
+  }
+
+  function calcularAgua() {
+    let qtdLitrosAgua = Number(qtdLPerdidasAgua.value) / 1000;
+    let total = 0;
+    let preco;
+    if (qtdLitrosAgua > 0 && qtdLitrosAgua <= 10) {
+      preco = 76.6;
+      total = preco;
+      gastoAgua.innerHTML = `R$${total.toFixed(2)}`;
+    } else if (qtdLitrosAgua <= 20) {
+      preco = 9;
+      total = qtdLitrosAgua * preco;
+      gastoAgua.innerHTML = `R$${total.toFixed(2)}`;
+    } else if (qtdLitrosAgua <= 50) {
+      preco = 15;
+      total = qtdLitrosAgua * preco;
+      gastoAgua.innerHTML = `R$${total.toFixed(2)}`;
+    } else {
+      preco = 18;
+      total = qtdLitrosAgua * preco;
+      gastoAgua.innerHTML = `R$${total.toFixed(2)}`;
+    }
+  }
+</script>

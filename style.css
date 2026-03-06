@@ -20,6 +20,11 @@ main {
     background-repeat: no-repeat;
 }
 
+h1 {
+    text-align: center;
+    margin-top: .5em;
+}
+
 #queijoPerdas {
     position: absolute;
     background-color: transparent;

@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora Financeira Projeto PI</title>
+    <title>Calc Financeira PI</title>
+    <link rel="shortcut icon" href="./queijo2.png" type="image/x-icon">
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -16,16 +17,16 @@
       <div onclick="displayNoneOrNormalEnergia()" id="energia"></div>
       <div onclick="displayNoneOrNormalAgua()" id="agua"></div>
     </main>
-    <div class="separacao"></div>
+    <div class="separacao"><h1>Calculadora de Gastos</h1></div>
     <section>
       <div class="container desaparecer" id="queijoForm">
         <div class="qtdKgPerdidas">
-          Quantidade em KG perdida e utilizada do queijo Minas Padrão:
+          Quantidade em KG perdida e utilizada do queijo Minas:
           <input onkeyup="calcularQueijo()" type="number" id="qtdKgPerdidasQueijo" />
         </div>
         <div id="precoMedioQPorKg">
-          Preço médio por KG do Queijo Minas Padrão:
-          <span>R$70,00</span>
+          Preço médio por KG do Queijo Minas:
+          <span>R$120,00</span>
         </div>
         <div id="valorQDesperdicado">
           Gasto médio mensal de:
@@ -47,12 +48,12 @@
       </div>
       <div class="container desaparecer" id="leiteForm">
         <div class="qtdLPerdidas">
-          Quantidade em Litros perdida do Leite: <br /><br />
+          Quantidade em Litros utilizada do Leite Cru: <br /><br />
           <input onkeyup="calcularLeite()" type="number" id="qtdLitrosPerdidasL" />
         </div>
         <div id="precoMedioLPorKg">
-          Preço médio por Litro do Leite:
-          <span> R$6,00 </span>
+          Preço médio por Litro do Leite Cru:
+          <span> R$2,11 </span>
         </div>
         <div id="valorLDesperdicado">
           Gasto médio mensal de:<span id="gastoLeite"></span>
@@ -197,9 +198,9 @@
     }
   }
 
-  let precoKgQueijo = 70;
+  let precoKgQueijo = 120;
   let precoKgSal = 2.8;
-  let precoLitroLeite = 6;
+  let precoLitroLeite = 2.11;
   let precoKWhSP = 0.7;
 
   function calcularQueijo() {

@@ -168,6 +168,10 @@ section div div input {
     font-size: 1.1em;
 }
 
+span#gastoAgua {
+    font-size: 1.41em;
+}
+
 .container {
     display: flex;
     justify-content: space-between;

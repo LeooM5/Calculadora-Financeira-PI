@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calc Financeira PI</title>
-    <link rel="shortcut icon" href="./queijo2.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./queijo2.png" type="image/x-icon" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -22,7 +22,11 @@
       <div class="container desaparecer" id="queijoForm">
         <div class="qtdKgPerdidas">
           Quantidade em KG perdida e utilizada do queijo Minas:
-          <input onkeyup="calcularQueijo()" type="number" id="qtdKgPerdidasQueijo" />
+          <input
+            onkeyup="calcularQueijo()"
+            type="number"
+            id="qtdKgPerdidasQueijo"
+          />
         </div>
         <div id="precoMedioQPorKg">
           Preço médio por KG do Queijo Minas:
@@ -49,7 +53,11 @@
       <div class="container desaparecer" id="leiteForm">
         <div class="qtdLPerdidas">
           Quantidade em Litros utilizada do Leite Cru: <br /><br />
-          <input onkeyup="calcularLeite()" type="number" id="qtdLitrosPerdidasL" />
+          <input
+            onkeyup="calcularLeite()"
+            type="number"
+            id="qtdLitrosPerdidasL"
+          />
         </div>
         <div id="precoMedioLPorKg">
           Preço médio por Litro do Leite Cru:
@@ -62,7 +70,11 @@
       <div class="container desaparecer" id="camaraMaturacaoForm">
         <div class="qtdKWhUsadoCamara">
           Quantidade de energia utilizada pela Câmara em KWh: <br /><br />
-          <input onkeyup="calcularCamara()" type="number" id="qtdKWhUsadoCamara" />
+          <input
+            onkeyup="calcularCamara()"
+            type="number"
+            id="qtdKWhUsadoCamara"
+          />
         </div>
         <div id="precoMedioKWh">
           Preço médio do KWh em São Paulo:
@@ -75,7 +87,11 @@
       <div class="container desaparecer" id="tanqueInoxForm">
         <div class="qtdKWhUsadoTanque">
           Quantidade em KWh usada pelo Tanque Inox: <br /><br />
-          <input onkeyup="calcularTanque()" type="number" id="qtdKWhUsadoTanque" />
+          <input
+            onkeyup="calcularTanque()"
+            type="number"
+            id="qtdKWhUsadoTanque"
+          />
         </div>
         <div id="precoMedioKWhSp">
           Preço médio do KWh em São Paulo: <span>R$0,70</span>
@@ -206,37 +222,37 @@
   function calcularQueijo() {
     let qtdKGQueijo = Number(qtdKgPerdidasQueijo.value);
     let total = qtdKGQueijo * precoKgQueijo;
-    gastoQueijo.innerHTML = `R$${total.toFixed(2)}`;
+    gastoQueijo.innerHTML = `${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`;
   }
 
   function calcularSal() {
     let qtdKGSal = Number(qtdKgUsadoSal.value);
     let total = qtdKGSal * precoKgSal;
-    gastoSal.innerHTML = `R$${total.toFixed(2)}`;
+    gastoSal.innerHTML = `${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`;
   }
 
   function calcularLeite() {
     let qtdLitrosLeite = Number(qtdLitrosPerdidasL.value);
     let total = qtdLitrosLeite * precoLitroLeite;
-    gastoLeite.innerHTML = `R$${total.toFixed(2)}`;
+    gastoLeite.innerHTML = `${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`;
   }
 
   function calcularCamara() {
     let qtdKwhCamara = Number(qtdKWhUsadoCamara.value);
     let total = qtdKwhCamara * precoKWhSP;
-    gastoCamara.innerHTML = `R$${total.toFixed(2)}`;
+    gastoCamara.innerHTML = `${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`;
   }
 
   function calcularTanque() {
     let qtdKwhTanque = Number(qtdKWhUsadoTanque.value);
     let total = qtdKwhTanque * precoKWhSP;
-    gastoTanque.innerHTML = `R$${total.toFixed(2)}`;
+    gastoTanque.innerHTML = `${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`;
   }
 
   function calcularEnergia() {
     let qtdKwhT = Number(qtdKWhTotal.value);
     let total = qtdKwhT * precoKWhSP;
-    gastoKwhTotal.innerHTML = `R$${total.toFixed(2)}`;
+    gastoKwhTotal.innerHTML = `${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`;
   }
 
   function calcularAgua() {
@@ -246,19 +262,19 @@
     if (qtdLitrosAgua > 0 && qtdLitrosAgua <= 10) {
       preco = 76.6;
       total = preco;
-      gastoAgua.innerHTML = `R$${total.toFixed(2)}`;
+      gastoAgua.innerHTML = `${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`;
     } else if (qtdLitrosAgua <= 20) {
       preco = 9;
       total = qtdLitrosAgua * preco;
-      gastoAgua.innerHTML = `R$${total.toFixed(2)}`;
+      gastoAgua.innerHTML = `${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`;
     } else if (qtdLitrosAgua <= 50) {
       preco = 15;
       total = qtdLitrosAgua * preco;
-      gastoAgua.innerHTML = `R$${total.toFixed(2)}`;
+      gastoAgua.innerHTML = `${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`;
     } else {
       preco = 18;
       total = qtdLitrosAgua * preco;
-      gastoAgua.innerHTML = `R$${total.toFixed(2)}`;
+      gastoAgua.innerHTML = `${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`;
     }
   }
 </script>
